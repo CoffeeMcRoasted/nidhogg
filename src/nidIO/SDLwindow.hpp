@@ -8,6 +8,8 @@ namespace io
 {
 class SDLWindow : public Window
 {
+    WindowPtr createWindow(uint32_t width = 600u, uint32_t height = 400u);
+    std::pair<uint32_t, char const *const[]> getRequiredExtensions() final;
 };
 } // namespace io
 } // namespace nidhogg
