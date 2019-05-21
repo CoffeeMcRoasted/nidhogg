@@ -1,0 +1,1 @@
+This entire repository is free for use.

@@ -1,0 +1,4 @@
+#ifndef _NID_APPLICATION_HPP_
+#define _NID_APPLICATION_HPP_
+
+#endif // !_NID_APPLICATION_HPP_
