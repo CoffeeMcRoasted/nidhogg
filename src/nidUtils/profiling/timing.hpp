@@ -5,13 +5,17 @@ namespace nidhogg
 {
 namespace utils
 {
-template <typename F, typename... Args>
-static auto duration(F &&func, Args &&... args)
+template <typename TimeT = std::chrono::milliseconds>
+struct Measure
 {
-    auto start = std::chrono::steady_clock::now();
-    std::forward<decltype(func)>(func)(std::forward<Args>(args)...);
-    return std::chrono::duration_cast<TimeT>(std::chrono::steady_clock::now() - start);
-}
+    template <typename F, typename... Args>
+    static auto Duration(F &&func, Args &&... args)
+    {
+        auto start = std::chrono::steady_clock::now();
+        std::forward<decltype(func)>(func)(std::forward<Args>(args)...);
+        return std::chrono::duration_cast<TimeT>(std::chrono::steady_clock::now() - start);
+    }
+};
 } // namespace utils
 } // namespace nidhogg
 

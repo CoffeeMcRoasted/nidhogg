@@ -7,15 +7,15 @@ namespace nidhogg
 {
 namespace io
 {
-class GlFWWindow : public Window, public WindowCreateHelper<GlFWWindow>
+class GLFWWindow : public Window, public WindowCreateHelper<GlFWWindow>
 {
-    friend struct WindowCreateHelper<GlFWWindow>;
+    friend struct WindowCreateHelper<GLFWWindow>;
 
 public:
     std::pair<uint32_t, char const *const[]> getRequiredExtensions() final;
 
 protected:
-    GlFWWindow(uint32_t width, uint32_t height);
+    GLFWWindow(uint32_t width, uint32_t height);
 };
 } // namespace io
 } // namespace nidhogg

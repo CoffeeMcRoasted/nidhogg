@@ -10,13 +10,13 @@ namespace vk
 struct Instance
 {
     VkInstance ptr = nullptr;
-    VkAllocationCallbacks const *alloc = nullptr;
-    VkInstanceCreateInfo cInfo;
-    VkApplicationInfo aInfo;
-    static InstancePtr create(const VkApplicationInfo &appInfo, VkAllocationCallbacks const *allocP = nullptr);
+    VkAllocationCallbacks const *allocation_callback_ptr = nullptr;
+    VkInstanceCreateInfo create_info;
+    VkApplicationInfo application_info;
+    static InstancePtr Create(const VkApplicationInfo &appInfo, VkAllocationCallbacks const *alloc_ptr = nullptr);
 
 private:
-    Instance(const VkApplicationInfo &appInfo, VkAllocationCallbacks const *allocP);
+    Instance(const VkApplicationInfo &app_info, VkAllocationCallbacks const *alloc_ptr);
 };
 
 using InstancePtr = std::unique_ptr<Instance, std::function<void(Instance *)>>;

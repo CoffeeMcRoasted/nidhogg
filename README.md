@@ -5,4 +5,6 @@
 ----
 This repository contains a 3D engine based in Vulkan using features contained in C++17 and beyond.
 
+The style guide used is Google's
+
 This document is UNDER CONSTRUCTION.

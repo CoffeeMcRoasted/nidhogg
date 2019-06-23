@@ -5,22 +5,22 @@ namespace nidhogg
 namespace vk
 {
 
-InstancePtr Instance::create(const VkApplicationInfo &appInfo, VkAllocationCallbacks const *allocP)
+InstancePtr Instance::Create(const VkApplicationInfo &app_info, VkAllocationCallbacks const *allocation_callback_ptr)
 {
-    return InstancePtr(new Instance(appInfo, allocP), [](Instance *p) { vkDestroyInstance(p->ptr, p->alloc); });
+    return InstancePtr(new Instance(app_info, allocation_callback_ptr), [](Instance *p) { vkDestroyInstance(p->ptr, p->allocation_callback_ptr); });
 }
 
-Instance::Instance(const VkApplicationInfo &appInfo, VkAllocationCallbacks const *allocP)
-    : aInfo(appInfo), alloc(allocP)
+Instance::Instance(const VkApplicationInfo &app_info, VkAllocationCallbacks const *allocation_callback_ptr)
+    : application_info(app_info), allocation_callback_ptr(allocation_callback_ptr)
 {
-    cInfo.pApplicationInfo = &aInfo;
-    cInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+    create_info.pApplicationInfo = &application_info;
+    create_info.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
     // Extension count for interfacing with the window system
     // getExtensionData
     // cInfo.enabledExtensionCount = data;
     // cInfo.ppEnabledExtensionNames = names;
-    VkResult res = vkCreateInstance(&cInfo, allocP, &ptr);
-    if (res != VK_SUCCESS)
+    VkResult result = vkCreateInstance(&create_info, allocation_callback_ptr, &ptr);
+    if (result != VK_SUCCESS)
     {
         ptr = nullptr;
     }
