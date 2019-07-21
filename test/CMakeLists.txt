@@ -22,3 +22,4 @@ macro(package_add_test TESTNAME)
 endmacro()
 
 add_subdirectory(nidVkTest)
+add_subdirectory(nidECSTest)
