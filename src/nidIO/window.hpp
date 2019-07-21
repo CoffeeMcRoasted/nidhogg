@@ -64,7 +64,7 @@ struct WindowCreateHelper
 nidhogg::io::WindowPtr nidhogg::io::WindowCreateHelper<typename W>::CreateWindow(uint32_t width, uint32_t height)
 {
     static_assert(std::is_base_of<Window, W>::value, "Window Create can only be used with classes of inherited from nidhogg::io::Window");
-    return nidhogg::io::WindowPtr(W(width, height), W::Delete)
+    return nidhogg::io::WindowPtr(W(width, height), W::Delete);
 }
 
 #endif // !_NID_IO_WINDOW_HPP_
