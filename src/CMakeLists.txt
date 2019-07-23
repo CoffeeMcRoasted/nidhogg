@@ -1,0 +1,5 @@
+# add_subdirectory(nidApp)
+# add_subdirectory(nidECS)
+# add_subdirectory(nidIO)
+# add_subdirectory(nidUtils)
+add_subdirectory(nidECS)
